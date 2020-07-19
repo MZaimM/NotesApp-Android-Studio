@@ -1,10 +1,4 @@
-package com.example.mynotesapp;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+package com.example.consumerapp;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,25 +11,29 @@ import android.os.HandlerThread;
 import android.view.View;
 import android.widget.ProgressBar;
 
-import com.example.mynotesapp.adapter.NoteAdapter;
-import com.example.mynotesapp.db.DatabaseContract;
-import com.example.mynotesapp.db.NoteHelper;
-import com.example.mynotesapp.entity.Note;
-import com.example.mynotesapp.helper.MappingHelper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.consumerapp.adapter.NoteAdapter;
+import com.example.consumerapp.entity.Note;
+import com.example.consumerapp.helper.MappingHelper;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
-import static com.example.mynotesapp.db.DatabaseContract.NoteColumns.CONTENT_URI;
+import static com.example.consumerapp.db.DatabaseContract.NoteColumns.CONTENT_URI;
 
 public class MainActivity extends AppCompatActivity implements LoadNotesCallback {
     private ProgressBar progressBar;
     private RecyclerView rvNotes;
     private FloatingActionButton fabAdd;
     private NoteAdapter adapter;
-    private NoteHelper noteHelper;
+
     public static final String EXTRA_STATE ="extra_state";
 
     @Override
@@ -44,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements LoadNotesCallback
         setContentView(R.layout.activity_main);
 
         if (getSupportActionBar() != null){
-            getSupportActionBar().setTitle("Notes");
+            getSupportActionBar().setTitle("Cunsumer Notes");
         }
 
         progressBar = findViewById(R.id.progressbar);
@@ -136,7 +134,7 @@ public class MainActivity extends AppCompatActivity implements LoadNotesCallback
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        noteHelper.close();
+        //noteHelper.close();
     }
 
     @Override
@@ -213,6 +211,7 @@ public class MainActivity extends AppCompatActivity implements LoadNotesCallback
         }
     }
 }
+
 interface LoadNotesCallback{
     void preExecute();
     void postExecute(ArrayList<Note> notes);

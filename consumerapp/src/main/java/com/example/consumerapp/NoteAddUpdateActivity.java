@@ -1,15 +1,7 @@
-package com.example.mynotesapp;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
+package com.example.consumerapp;
 
 import android.content.ContentValues;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -21,20 +13,23 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.mynotesapp.db.NoteHelper;
-import com.example.mynotesapp.entity.Note;
-import com.example.mynotesapp.helper.MappingHelper;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+
+import com.example.consumerapp.entity.Note;
+import com.example.consumerapp.helper.MappingHelper;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-
 import static android.provider.CallLog.Calls.DATE;
 import static android.provider.MediaStore.MediaColumns.TITLE;
 import static android.provider.MediaStore.Video.VideoColumns.DESCRIPTION;
-import static com.example.mynotesapp.db.DatabaseContract.NoteColumns.CONTENT_URI;
+import static com.example.consumerapp.db.DatabaseContract.NoteColumns.CONTENT_URI;
 
 public class NoteAddUpdateActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText edtTitle, edtDescription;
@@ -43,7 +38,7 @@ public class NoteAddUpdateActivity extends AppCompatActivity implements View.OnC
     private boolean isEdit = false;
     private Note note;
     private int position;
-    private NoteHelper noteHelpe;
+    //private NoteHelper noteHelpe;
     private Uri uriWithId;
 
     public static final String EXTRA_NOTE = "extra_note";

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.mynotesapp">
+    package="com.example.consumerapp">
 
-    <permission android:name="com.example.mynotesapp.READ_DATABASE" android:protectionLevel="normal"/>
-    <permission android:name="com.example.mynotesapp.WRITE_DATABASE" android:protectionLevel="normal"/>
-
+    <uses-permission android:name="com.example.mynotesapp.READ_DATABASE"/>
+    <uses-permission android:name="com.example.mynotesapp.WRITE_DATABASE"/>
 
     <application
         android:allowBackup="true"
@@ -13,8 +12,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NoteAddUpdateActivity" />
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,13 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <provider
-            android:name=".provider.NoteProvider"
-            android:authorities="com.example.mynotesapp"
-            android:exported="true"
-            android:enabled="true"
-            android:readPermission="com.example.mynotesapp.READ_DATABASE"
-            android:writePermission="com.example.mynotesapp.WRITE_DATABASE"></provider>
+        <activity android:name=".NoteAddUpdateActivity" />
     </application>
 
 </manifest>
